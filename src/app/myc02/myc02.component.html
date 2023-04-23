@@ -12,9 +12,27 @@
     </tr>
     <tr *ngFor="let item of Result; let i=index">
         <td>{{i+1}}</td>
-        <td>{{item.data|date: 'yyyy-MM-dd'}}</td>
+        <td>{{item.date|date: 'yyyy年MM月dd日'}}</td>
         <td>{{item.summary}}</td>
         <td>{{item.temperatureC}}</td>
         <td>{{item.temperatureF}}</td>
     </tr>
 </table>
+
+<br/>
+
+<form>
+    <label>日期</label>
+    <input type="date" [(ngModel)]="Model.date" name="Date">
+
+    <label>概要</label>
+    <input type="text" [(ngModel)]="Model.summary" name="Summary" placeholder="概要">
+
+    <label>摄氏度</label>
+    <input type="text" [(ngModel)]="Model.temperatureC" name="TemperatureC" placeholder="摄氏度">
+  
+    <label>华氏度</label>
+    <input type="text" [(ngModel)]="Model.temperatureF" name="TemperatureF" placeholder="华氏度">
+
+    <button (click)="add()">Add</button>
+</form>
